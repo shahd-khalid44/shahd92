@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Keyboard Piano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>My Keyboard Piano</h1>
+    <div class="orn"><span>&#9834;</span></div>
+    <p class="tagline">Music is memory with a melody: one note brings back a person, a place, a whole season of life.</p>
+    <p class="hint">Press A S D F G H J K to play &middot; W E T Y U for the sharps</p>
+  </header>
+
+  <!-- The case frames the piano; the display shows the last note played -->
+  <main class="case">
+    <p id="status" aria-live="polite">Press a key and start your song</p>
+
+    <!-- One .piano box holds 8 .key boxes; each key remembers its letter in data-key -->
+    <div class="piano">
+      <div class="key" data-key="a"><span class="note">C</span><span class="solfege">Do</span><kbd>A</kbd></div>
+      <div class="key" data-key="s"><span class="note">D</span><span class="solfege">Re</span><kbd>S</kbd></div>
+      <div class="key" data-key="d"><span class="note">E</span><span class="solfege">Mi</span><kbd>D</kbd></div>
+      <div class="key" data-key="f"><span class="note">F</span><span class="solfege">Fa</span><kbd>F</kbd></div>
+      <div class="key" data-key="g"><span class="note">G</span><span class="solfege">Sol</span><kbd>G</kbd></div>
+      <div class="key" data-key="h"><span class="note">A</span><span class="solfege">La</span><kbd>H</kbd></div>
+      <div class="key" data-key="j"><span class="note">B</span><span class="solfege">Ti</span><kbd>J</kbd></div>
+      <div class="key" data-key="k"><span class="note">C</span><span class="solfege">Do</span><kbd>K</kbd></div>
+
+      <!-- Bonus: black keys (sharps), placed like a real keyboard: W E _ T Y U -->
+      <div class="key black" data-key="w" style="--pos:1"><span class="note">C#</span><kbd>W</kbd></div>
+      <div class="key black" data-key="e" style="--pos:2"><span class="note">D#</span><kbd>E</kbd></div>
+      <div class="key black" data-key="t" style="--pos:4"><span class="note">F#</span><kbd>T</kbd></div>
+      <div class="key black" data-key="y" style="--pos:5"><span class="note">G#</span><kbd>Y</kbd></div>
+      <div class="key black" data-key="u" style="--pos:6"><span class="note">A#</span><kbd>U</kbd></div>
+    </div>
+  </main>
+
+  <!-- Bonus: sound selector and a simple song -->
+  <div class="extras">
+    <label for="instrument">Instrument</label>
+    <select id="instrument">
+      <optgroup label="Instruments">
+        <option value="piano">Grand Piano</option>
+        <option value="electric">Electric Piano</option>
+        <option value="organ">Church Organ</option>
+        <option value="harp">Harp</option>
+        <option value="bell">Crystal Bell</option>
+        <option value="strings">Strings</option>
+        <option value="synth">Synth Lead</option>
+      </optgroup>
+      <optgroup label="Basic waves">
+        <option value="sine">Sine</option>
+        <option value="square">Square</option>
+        <option value="triangle">Triangle</option>
+        <option value="sawtooth">Sawtooth</option>
+      </optgroup>
+    </select>
+  </div>
+  <!-- Songbook: cards are built by script.js -->
+  <section class="songbook" id="songbook">
+    <h2>Songbook</h2>
+    <p class="song-hint">Tap a song, then follow the glowing keys</p>
+  </section>
+
+  <p class="quote" id="quote"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
